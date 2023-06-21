@@ -17,6 +17,7 @@ export default function Lights({ lights, onToggle }) {
           {lights.map((light) => (
           <li key={light.id}>
             <Light 
+            id={light.id}
             name={light.name} 
             isOn={light.isOn} 
             onToggle={onToggle} />
