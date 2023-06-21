@@ -25,7 +25,18 @@ export default function App({ Component, pageProps }) {
       light.id === id ? { ...light, isOn: !light.isOn } : light)
     );
   }
-console.log(lights);
+
+  function handleAllLightsOn() {
+    setLights(
+      lights.map((light) => (!light.isOn ? { ...light, isOn: true } : light))
+      );
+    }
+  
+    function handleAllLightsOff() {
+      setLights(
+        lights.map((light) => (light.isOn ? { ...light, isOn: false } : light))
+      );
+    }
 
   return (
     <Layout countLights={countLights}>
@@ -34,7 +45,10 @@ console.log(lights);
       {...pageProps}
       lights={lights}
       onToggle={handleToggle}
-      countLights={countLights} />
+      countLights={countLights}
+      onAllLightsOn={handleAllLightsOn}
+      onAllLightsOff={handleAllLightsOff}
+       />
     </Layout>
   );
 }
